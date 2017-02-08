@@ -1,5 +1,5 @@
 {
-    "name": "madewithlove/broadway-mongodb",
+    "name": "jaco/broadway-mongodb",
     "description": "A mongodb driver for Broadway",
     "license": "MIT",
     "keywords": [
