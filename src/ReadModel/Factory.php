@@ -26,7 +26,7 @@ class Factory implements RepositoryFactory
         $this->connection = $connection;
     }
 
-    public function create(string $name, string $class): Repository
+    public function create(string $name, string $class = MongoDBRepository::class): Repository
     {
         return new $class(
             $this->serializer,
