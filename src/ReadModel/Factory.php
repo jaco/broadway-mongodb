@@ -2,14 +2,16 @@
 
 namespace Madewithlove\Broadway\MongoDB\ReadModel;
 
+use Broadway\ReadModel\Repository;
+use Broadway\ReadModel\RepositoryFactory;
 use Broadway\ReadModel\RepositoryFactoryInterface;
-use Broadway\Serializer\SerializerInterface;
+use Broadway\Serializer\Serializer;
 use MongoDB\Database;
 
-class Factory implements RepositoryFactoryInterface
+class Factory implements RepositoryFactory
 {
     /**
-     * @var SerializerInterface
+     * @var Serializer
      */
     protected $serializer;
 
@@ -18,23 +20,13 @@ class Factory implements RepositoryFactoryInterface
      */
     protected $connection;
 
-    /**
-     * @param SerializerInterface $serializer
-     * @param Database $connection
-     */
-    public function __construct(SerializerInterface $serializer, Database $connection)
+    public function __construct(Serializer $serializer, Database $connection)
     {
         $this->serializer = $serializer;
         $this->connection = $connection;
     }
 
-    /**
-     * @param string $name
-     * @param string $class
-     *
-     * @return mixed
-     */
-    public function create($name, $class = MongoDBRepository::class)
+    public function create(string $name, string $class): Repository
     {
         return new $class(
             $this->serializer,

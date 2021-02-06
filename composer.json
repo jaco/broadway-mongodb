@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.5.9",
-        "broadway/broadway": "dev-master",
+        "broadway/broadway": "2.4.0",
         "mongodb/mongodb": "^1.0"
     },
     "require-dev": {
